@@ -17,8 +17,11 @@ extern LogLevel current_log_level;
     do { \
         if((level) <= current_log_level && (level) > LOG_DISABLED) { \
             static const char * level_names[] = {"NONE","ERROR", "WARNING", "INFO", "DEBUG"}; \
-            fprintf(stderr, "(%s -> %d) [%s] " fmt "\n", \
-                __FILE__, __LINE__, \
+            if((level) == LOG_ERROR){ \
+                fprintf(stderr, "(%s : %d) ", \
+                __FILE__, __LINE__); \
+            } \
+            fprintf(stderr, "[%s] " fmt "\n", \
                 level_names[level], ##__VA_ARGS__); \
         } \
     } while(0);
