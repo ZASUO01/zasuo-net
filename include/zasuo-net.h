@@ -3,5 +3,6 @@
 
 #include "zasuo-net/net-logs.h"
 #include "zasuo-net/addresses.h"
+#include "zasuo-net/packet.h"
 
 #endif
